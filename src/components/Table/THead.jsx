@@ -4,7 +4,7 @@ export default function THead(props) {
     let theadClass = '';
     if (props.dark) {
         theadClass = 'thead-dark';
-    } else {
+    } else if (props.light) {
         theadClass = 'thead-light';
     }
 

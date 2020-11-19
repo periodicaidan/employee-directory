@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function TRow(prosp) {
+export default function TRow(props) {
     return (
-        <tr className={prosp.context && `table-${props.context}`}>
+        <tr className={props.context && `table-${props.context}`}>
             {props.children}
         </tr>
     );
