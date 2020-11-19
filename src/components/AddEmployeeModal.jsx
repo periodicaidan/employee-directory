@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Input, Select } from './Form';
-import { EmployeesContext } from '../utils/EmployeesContext'
+import EmployeesContext from '../utils/EmployeesContext'
 
 /**
  * A modal containing a form for adding an employee to the table

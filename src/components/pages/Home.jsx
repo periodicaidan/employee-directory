@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddEmployeeModal from '../AddEmployeeModal';
 import EmployeeTable from '../EmployeeTable';
-import { EmployeesContext, Employee } from '../../utils/EmployeesContext';
+import EmployeesContext from '../../utils/EmployeesContext';
 import employeeList from '../../data/employees.json';
 
 /**

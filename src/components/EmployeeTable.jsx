@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Table, THead, TRow, TData, THeaderCell } from './Table';
-import { EmployeesContext } from '../utils/EmployeesContext';
+import EmployeesContext from '../utils/EmployeesContext';
 
 /**
  * Compares two employees according to the provided field
