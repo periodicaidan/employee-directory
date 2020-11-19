@@ -37,23 +37,26 @@ function EmployeeTable(props) {
                     <THeaderCell onClick={e => setSortBy('lastName')}>Last Name</THeaderCell>
                     <THeaderCell onClick={e => setSortBy('department')}>Department</THeaderCell>
                     <THeaderCell onClick={e => setSortBy('role')}>Role</THeaderCell>
-                    <THeaderCell onClick={e => setSortBy('managerId')}>Manager ID</THeaderCell>
+                    <THeaderCell onClick={e => setSortBy('managerId')}>Manager</THeaderCell>
                 </TRow>
             </THead>
             <tbody>
                 {
                     props.employees
                         .sort((e1, e2) => compareEmployeesBy(sortBy, e1, e2))
-                        .map(e => 
-                            <TRow>
-                                <TData>{e.id}</TData>
-                                <TData>{e.firstName}</TData>
-                                <TData>{e.lastName}</TData>
-                                <TData>{e.department}</TData>
-                                <TData>{e.role}</TData>
-                                <TData>{e.managerId}</TData>
-                            </TRow>
-                        )
+                        .map(e => {
+                            const manager = e.managerId && props.employees.filter(m => m.id === e.managerId)[0];
+                            return ( 
+                                <TRow>
+                                    <TData>{e.id}</TData>
+                                    <TData>{e.firstName}</TData>
+                                    <TData>{e.lastName}</TData>
+                                    <TData>{e.department}</TData>
+                                    <TData>{e.role}</TData>
+                                    <TData>{manager && `${manager.firstName} ${manager.lastName}`}</TData>
+                                </TRow>
+                            )                        
+                        })
                 }
             </tbody>
         </Table>
