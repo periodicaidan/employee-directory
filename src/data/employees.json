@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Doe",
+        "department": "Accounting",
+        "role": "Senior Accountant"
+    },
+    {
+        "id": 2,
+        "firstName": "Adrian",
+        "lastName": "Arms",
+        "department": "Technology",
+        "role": "Tech Lead"
+    }
+]

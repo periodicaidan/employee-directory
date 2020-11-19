@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import AddEmployeeModal from '../AddEmployeeModal';
 import EmployeeTable from '../EmployeeTable';
 import { EmployeesContext, Employee } from '../../utils/EmployeesContext';
+import employeeList from '../../data/employees.json';
 
 /**
  * The home page of the app
  */
 export default function Home() {
     // Initial list of employees
-    const [employees, setEmployees] = useState([
-        new Employee(1, 'John', 'Doe', 'Accounting', 'Accountant'),
-        new Employee(2, 'Adrian', 'Arms', 'Engineering', 'Tech Lead'),
-    ]);
+    const [employees, setEmployees] = useState(employeeList);
 
     // Statelessly appends to the employees list
     const addEmployee = newEmployee => 
