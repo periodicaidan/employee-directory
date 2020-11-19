@@ -1,5 +1,6 @@
 import React from 'react';
 
+// This is probably an anti-pattern
 function Form(props) {
     return (
         <form>

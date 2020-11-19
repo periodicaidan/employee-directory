@@ -2,11 +2,17 @@ import React, { useState, useContext } from 'react';
 import { Table, THead, TRow, TData, THeaderCell } from './Table';
 import { EmployeesContext } from '../utils/EmployeesContext';
 
-function compareEmployeesBy(key, e1, e2) {
-    const p1 = e1[key];
-    const p2 = e2[key];
+/**
+ * Compares two employees according to the provided field
+ */
+function compareEmployeesBy(field, e1, e2) {
+    const p1 = e1[field];
+    const p2 = e2[field];
 
+    // The fields of an employee are either a string or a number
     if (typeof p1 === 'string') {
+        // Subtracting between strings is not a thing you can do in JS
+        // Why ECMA don't just define it as something like this is beyond me
         return (p1 > p2) ? 1 : -1;
     } else if (typeof p1 === 'number') {
         return p1 - p2;
@@ -15,8 +21,11 @@ function compareEmployeesBy(key, e1, e2) {
     return 0;
 }
 
-function EmployeeTable(props) {
+export default function EmployeeTable(props) {
+    // We're tracking the sorting criterion inside this component
     const [sortBy, setSortBy] = useState('id');
+
+    // ...while the list of employees is provided
     const employees = useContext(EmployeesContext);
 
     return (
@@ -36,6 +45,7 @@ function EmployeeTable(props) {
                     employees
                         .sort((e1, e2) => compareEmployeesBy(sortBy, e1, e2))
                         .map(e => {
+                            // The "Manager" column should display a manager's full name rather than their ID
                             const manager = e.managerId && employees.filter(m => m.id === e.managerId)[0];
                             return ( 
                                 <TRow>
@@ -53,7 +63,3 @@ function EmployeeTable(props) {
         </Table>
     );
 }
-
-export {
-    EmployeeTable
-};

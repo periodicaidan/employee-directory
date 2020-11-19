@@ -1,6 +1,9 @@
 import React from 'react';
 import { FormGroup } from './Form';
 
+/**
+ * A dropdown menu with an optional label
+ */
 export default function Select(props) {
     return (
         <FormGroup>
@@ -10,6 +13,7 @@ export default function Select(props) {
                 id={props.name} 
                 onChange={props.onChange} 
                 value={props.value}
+                defaultValue={props.defaultValue}
             >
                 {props.children}
             </select>

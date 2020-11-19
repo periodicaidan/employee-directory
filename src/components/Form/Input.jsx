@@ -1,6 +1,9 @@
 import React from 'react';
 import { FormGroup } from './Form';
 
+/**
+ * A Bootstrap input form control with optional label and tip text
+ */
 export default function Input(props) {
     return (
         <FormGroup>

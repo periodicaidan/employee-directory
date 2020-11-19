@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Employee } from '../components/EmployeeTable';
 
 class Employee {
     constructor(id, firstName, lastName, department, role, managerId) {
