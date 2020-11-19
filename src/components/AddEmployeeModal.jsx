@@ -34,11 +34,11 @@ export default function AddEmployeeModal(props) {
                     </div>
                     <div className="modal-body">
                         <form>
-                            <Input onChange={e => setFirstName(e.target.value)} value={firstName} name="firstName" label="First Name" />
-                            <Input onChange={e => setLastName(e.target.value)} value={lastName} name="lastName" label="Last Name" />
-                            <Input onChange={e => setDepartment(e.target.value)} value={department} name="department" label="Department" />
-                            <Input onChange={e => setRole(e.target.value)} value={role} name="role" label="Role" />
-                            <Select onChange={e => setManagerId(parseInt(e.target.value))} value={managerId} name="manager">
+                            <Input onChange={e => setEmployeeState({ ...employeeState, firstName: e.target.value })} value={employeeState.firstName} name="firstName" label="First Name" />
+                            <Input onChange={e => setEmployeeState({ ...employeeState, lastName: e.target.value })} value={employeeState.lastName} name="lastName" label="Last Name" />
+                            <Input onChange={e => setEmployeeState({ ...employeeState, department: e.target.value })} value={employeeState.department} name="department" label="Department" />
+                            <Input onChange={e => setEmployeeState({ ...employeeState, role: e.target.value })} value={employeeState.role} name="role" label="Role" />
+                            <Select onChange={e => setEmployeeState({ ...employeeState, managerId: parseInt(e.target.value) })} value={employeeState.managerId} name="manager">
                                 <option value={undefined} selected>-- None --</option>
                                 {
                                     props.employees
@@ -48,7 +48,7 @@ export default function AddEmployeeModal(props) {
                         </form>
                     </div>
                     <div className="modal-footer">
-                        <button onClick={e => saveEmployee({ firstName, lastName, department, role, managerId })} className="btn btn-success" data-dismiss="modal">Save</button>
+                        <button onClick={e => saveEmployee(employeeState)} className="btn btn-success" data-dismiss="modal">Save</button>
                         <button className="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>

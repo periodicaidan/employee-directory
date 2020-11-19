@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AddEmployeeModal from '../AddEmployeeModal';
 import { EmployeeTable, Employee } from '../EmployeeTable';
 
 export default function Home() {
@@ -10,7 +11,12 @@ export default function Home() {
     return (
         <main>
             <h1>Employee Directory</h1>
+            <button className="btn btn-primary" data-toggle="modal" data-target="#addEmployeeModal">Add Employee</button>
             <EmployeeTable employees={employees} />
+            <AddEmployeeModal 
+                employees={employees} 
+                onComplete={newEmployee => setEmployees([...employees, { id: employees.length + 1, ...newEmployee }])} 
+            />
         </main>
     );
 }
