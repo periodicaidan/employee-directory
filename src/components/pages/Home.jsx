@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddEmployeeModal from '../AddEmployeeModal';
-import { EmployeeTable, Employee } from '../EmployeeTable';
+import { EmployeeTable } from '../EmployeeTable';
+import { EmployeesContext, Employee } from '../../utils/EmployeesContext';
 
 export default function Home() {
     const [employees, setEmployees] = useState([
@@ -12,11 +13,12 @@ export default function Home() {
         <main>
             <h1>Employee Directory</h1>
             <button className="btn btn-primary" data-toggle="modal" data-target="#addEmployeeModal">Add Employee</button>
-            <EmployeeTable employees={employees} />
-            <AddEmployeeModal 
-                employees={employees} 
-                onComplete={newEmployee => setEmployees([...employees, { id: employees.length + 1, ...newEmployee }])} 
-            />
+            <EmployeesContext.Provider value={employees}>
+                <EmployeeTable />
+                <AddEmployeeModal
+                    onComplete={newEmployee => setEmployees([...employees, { id: employees.length + 1, ...newEmployee }])} 
+                />
+            </EmployeesContext.Provider>
         </main>
     );
 }

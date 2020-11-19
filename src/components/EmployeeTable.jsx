@@ -1,16 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Table, THead, TRow, TData, THeaderCell } from './Table';
-
-class Employee {
-    constructor(id, firstName, lastName, department, role, managerId) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.department = department;
-        this.role = role;
-        this.managerId = managerId;
-    }
-}
+import { EmployeesContext } from '../utils/EmployeesContext';
 
 function compareEmployeesBy(key, e1, e2) {
     const p1 = e1[key];
@@ -27,6 +17,7 @@ function compareEmployeesBy(key, e1, e2) {
 
 function EmployeeTable(props) {
     const [sortBy, setSortBy] = useState('id');
+    const employees = useContext(EmployeesContext);
 
     return (
         <Table striped hoverable>
@@ -42,10 +33,10 @@ function EmployeeTable(props) {
             </THead>
             <tbody>
                 {
-                    props.employees
+                    employees
                         .sort((e1, e2) => compareEmployeesBy(sortBy, e1, e2))
                         .map(e => {
-                            const manager = e.managerId && props.employees.filter(m => m.id === e.managerId)[0];
+                            const manager = e.managerId && employees.filter(m => m.id === e.managerId)[0];
                             return ( 
                                 <TRow>
                                     <TData>{e.id}</TData>
@@ -64,6 +55,5 @@ function EmployeeTable(props) {
 }
 
 export {
-    Employee,
     EmployeeTable
 };

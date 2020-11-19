@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Input, Select } from './Form';
+import { EmployeesContext } from '../utils/EmployeesContext'
 
 export default function AddEmployeeModal(props) {
+    const employees = useContext(EmployeesContext);
     const [employeeState, setEmployeeState] = useState({
         firstName: '',
         lastName: '',
@@ -41,7 +43,7 @@ export default function AddEmployeeModal(props) {
                             <Select onChange={e => setEmployeeState({ ...employeeState, managerId: parseInt(e.target.value) })} value={employeeState.managerId} name="manager">
                                 <option value={undefined} selected>-- None --</option>
                                 {
-                                    props.employees
+                                    employees
                                         .map(e => <option value={e.id}>{e.firstName} {e.lastName}</option>)
                                 }
                             </Select>
