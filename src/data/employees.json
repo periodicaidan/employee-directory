@@ -12,5 +12,83 @@
         "lastName": "Arms",
         "department": "Technology",
         "role": "Tech Lead"
+    },
+    {
+        "id": 3,
+        "firstName": "Jonathan",
+        "lastName": "Snow",
+        "department": "Technology",
+        "role": "Junior Software Engineer",
+        "managerId": 2
+    },
+    {
+        "id": 4,
+        "firstName": "Alan",
+        "lastName": "Carmichael",
+        "department": "Technology",
+        "role": "Senior Cryptographic Engineer",
+        "managerId": 2
+    },
+    {
+        "id": 5,
+        "firstName": "Ayanna",
+        "lastName": "Kobe",
+        "department": "Public Relations",
+        "role": "Investor Relations Manager"
+    },
+    {
+        "id": 6,
+        "firstName": "Annchi",
+        "lastName": "Zhao",
+        "department": "Public Relations",
+        "role": "Junior Investor Relations Correspondent",
+        "managerId": 5
+    },
+    {
+        "id": 7,
+        "firstName": "Hirotaro",
+        "lastName": "Yumida",
+        "department": "Technology",
+        "role": "Junior Cryptographic Engineer",
+        "managerId": 4
+    },
+    {
+        "id": 8,
+        "firstName": "Angelica",
+        "lastName": "Sommerfeld",
+        "department": "Accounting",
+        "role": "Junior Accountant",
+        "managerId": 1
+    },
+    {
+        "id": 9,
+        "firstName": "Aaron",
+        "lastName": "Vexler",
+        "department": "Technology",
+        "role": "Senior Software Engineer",
+        "managerId": 2
+    },
+    {
+        "id": 10,
+        "firstName": "Shahin",
+        "lastName": "Farahmand",
+        "department": "Technology",
+        "role": "Software Intern",
+        "managerId": 9
+    },
+    {
+        "id": 11,
+        "firstName": "Nadezda",
+        "lastName": "Petronova",
+        "department": "Public Relations",
+        "role": "Social Media Correspondent"
+    },
+    {
+        "id": 12,
+        "firstName": "Fatima",
+        "lastName": "Al-Farsi",
+        "department": "Technology",
+        "role": "Junior Software Engineer",
+        "managerId": 9
     }
 ]
