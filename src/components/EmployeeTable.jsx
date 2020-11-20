@@ -33,16 +33,28 @@ export default function EmployeeTable(props) {
     // ...while the list of employees is provided
     const employees = useContext(EmployeesContext);
 
+    const SortButton = props => {
+        return (
+            <button 
+                className="btn btn-link btn-sm float-right" 
+                onClick={e => setSortCriterion(props.criterion)}
+                disabled={props.criterion === sortCriterion}
+            >
+                &#9660; {/* black down-pointing triangle */}
+            </button>
+        );
+    }
+
     return (
         <Table striped hoverable>
             <THead>
                 <TRow>
-                    <THeaderCell onClick={e => setSortCriterion('id')}>ID</THeaderCell>
-                    <THeaderCell onClick={e => setSortCriterion('firstName')}>First Name</THeaderCell>
-                    <THeaderCell onClick={e => setSortCriterion('lastName')}>Last Name</THeaderCell>
-                    <THeaderCell onClick={e => setSortCriterion('department')}>Department</THeaderCell>
-                    <THeaderCell onClick={e => setSortCriterion('role')}>Role</THeaderCell>
-                    <THeaderCell onClick={e => setSortCriterion('managerId')}>Manager</THeaderCell>
+                    <THeaderCell>ID <SortButton criterion="id" /></THeaderCell>
+                    <THeaderCell>First Name <SortButton criterion="firstName" /></THeaderCell>
+                    <THeaderCell>Last Name <SortButton criterion="lastName" /></THeaderCell>
+                    <THeaderCell>Department <SortButton criterion="department" /></THeaderCell>
+                    <THeaderCell>Role <SortButton criterion="role" /></THeaderCell>
+                    <THeaderCell>Manager <SortButton criterion="managerId" /></THeaderCell>
                 </TRow>
             </THead>
             <tbody>

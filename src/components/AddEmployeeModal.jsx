@@ -82,6 +82,7 @@ export default function AddEmployeeModal(props) {
                         </form>
                     </div>
                     <div className="modal-footer">
+                        <small className="text-danger">NB: Employees added through this form will not persist</small>
                         <button onClick={e => saveEmployee(employeeState)} className="btn btn-success" data-dismiss="modal">Save</button>
                         <button className="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
