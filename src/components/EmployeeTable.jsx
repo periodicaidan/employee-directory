@@ -23,7 +23,7 @@ function compareEmployeesBy(field, e1, e2) {
 
 export default function EmployeeTable(props) {
     // We're tracking the sorting criterion inside this component
-    const [sortBy, setSortBy] = useState('id');
+    const [sortCriterion, setSortCriterion] = useState('id');
 
     // ...while the list of employees is provided
     const employees = useContext(EmployeesContext);
@@ -32,18 +32,18 @@ export default function EmployeeTable(props) {
         <Table striped hoverable>
             <THead>
                 <TRow>
-                    <THeaderCell onClick={e => setSortBy('id')}>ID</THeaderCell>
-                    <THeaderCell onClick={e => setSortBy('firstName')}>First Name</THeaderCell>
-                    <THeaderCell onClick={e => setSortBy('lastName')}>Last Name</THeaderCell>
-                    <THeaderCell onClick={e => setSortBy('department')}>Department</THeaderCell>
-                    <THeaderCell onClick={e => setSortBy('role')}>Role</THeaderCell>
-                    <THeaderCell onClick={e => setSortBy('managerId')}>Manager</THeaderCell>
+                    <THeaderCell onClick={e => setSortCriterion('id')}>ID</THeaderCell>
+                    <THeaderCell onClick={e => setSortCriterion('firstName')}>First Name</THeaderCell>
+                    <THeaderCell onClick={e => setSortCriterion('lastName')}>Last Name</THeaderCell>
+                    <THeaderCell onClick={e => setSortCriterion('department')}>Department</THeaderCell>
+                    <THeaderCell onClick={e => setSortCriterion('role')}>Role</THeaderCell>
+                    <THeaderCell onClick={e => setSortCriterion('managerId')}>Manager</THeaderCell>
                 </TRow>
             </THead>
             <tbody>
                 {
                     employees
-                        .sort((e1, e2) => compareEmployeesBy(sortBy, e1, e2))
+                        .sort((e1, e2) => compareEmployeesBy(sortCriterion, e1, e2))
                         .map(e => {
                             // The "Manager" column should display a manager's full name rather than their ID
                             const manager = e.managerId && employees.filter(m => m.id === e.managerId)[0];
